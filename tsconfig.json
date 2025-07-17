@@ -13,7 +13,14 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "preserve"
+    "module": "preserve",
+    "paths": {
+      "@shared/navigation*": ["./src/app/shared/index.ts"],
+      "@shared/team*": ["./src/app/shared/index.ts"],
+      "@shared/projects*": ["./src/app/shared/index.ts"],
+      "@shared/calendar*": ["./src/app/shared/index.ts"],
+      "@shared/dashboard*": ["./src/app/shared/index.ts"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
