@@ -19,7 +19,8 @@
       "@shared/team*": ["./src/app/shared/index.ts"],
       "@shared/projects*": ["./src/app/shared/index.ts"],
       "@shared/calendar*": ["./src/app/shared/index.ts"],
-      "@shared/dashboard*": ["./src/app/shared/index.ts"]
+      "@shared/dashboard*": ["./src/app/shared/index.ts"],
+      "@shared/directives*": ["./src/app/shared/index.ts"]
     }
   },
   "angularCompilerOptions": {

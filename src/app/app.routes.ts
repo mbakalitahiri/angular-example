@@ -29,4 +29,18 @@ export const routes: Routes = [
         (c) => c.DashboardComponent
       ),
   },
+  {
+    path: '',
+    loadComponent: () =>
+      import('./shared/components/ui/home/home.component').then(
+        (c) => c.HomeComponent
+      ),
+  },
+  {
+    path: '**',
+    loadComponent: () =>
+      import('./shared/components/ui/notFound/notFound.component').then(
+        (c) => c.NotFoundComponent
+      ),
+  },
 ];
