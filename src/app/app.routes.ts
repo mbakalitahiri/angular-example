@@ -30,6 +30,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'products',
+    loadComponent: () =>
+      import('./features/products/components/list/list.component').then(
+        (c) => c.ListComponent
+      ),
+  },
+  {
     path: '',
     loadComponent: () =>
       import('./shared/components/ui/home/home.component').then(
