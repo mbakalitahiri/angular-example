@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, resource, signal } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
-import { catchError, of } from 'rxjs';
+import { catchError, map, of, tap } from 'rxjs';
 import { ResponseServer } from '../models/responserServer.model';
 @Injectable({
   providedIn: 'root',
@@ -27,15 +27,14 @@ export class ProductService {
   });
 
   productResource = rxResource({
-    request: () => this.selectedProduct,
-    loader: (params: any) => {
-      // Return the observable directly
-      return this.http.get<ResponseServer>(`${this.url}/${params}`).pipe(
-        catchError((error) => {
-          console.error(error);
-          return of(null); // Return null on error or handle accordingly
-        })
-      );
-    },
+    params: this.selectedProduct,
+    stream: () =>
+      this.http
+        .get<ResponseServer>(`${this.url}/${this.selectedProduct()}`)
+        .pipe(
+          map((data) => data),
+          tap((data) => console.log(data)),
+          catchError(() => of([]))
+        ),
   });
 }

@@ -20,10 +20,13 @@ export class ListComponent {
   service = inject(ProductService);
   products: ResourceRef<Product[]> = this.service.products;
 
+  constructor() {
+    console.log(this.service.productResource.value());
+  }
+
   selectedProduct = signal<Product | null>(null);
   onSelectedProduct(product: Product) {
     this.selectedProduct.set(product);
-    console.log(this.selectedProduct());
     this.service.selectedProduct.set(product.id);
   }
 }
