@@ -6,12 +6,13 @@ import {
   ResourceRef,
   signal,
 } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Product } from '../../../../shared/models/product.model';
 import { ProductService } from '../../../../shared/services/products.service';
 
 @Component({
   selector: 'app-list',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -6,6 +6,7 @@
   <div
     class="bg-white shadow-md rounded-lg p-4 border border-gray-200 hover:shadow-lg transition"
     (click)="onSelectedProduct(product)"
+    [routerLink]="['/products', product.id]"
   >
     <h2 class="text-lg font-semibold text-gray-800 mb-2">
       {{ product.nombre }}
